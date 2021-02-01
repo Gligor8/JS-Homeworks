@@ -64,27 +64,29 @@ var Assets = 10000
 function ATM(){
 
 function enterDep(){
-    let balState = Assets + deposit
+    let balState = Assets + deposit.value;
     alert(`You have ${balState} on balance!`);
+    deposit.value = '';
 }
 // Ovde mi se javi nekoj problem svrzan so povrzuvanjeto na funkcijata so button-ot
-addEventListener('click', enterDep, submit);
+submit.addEventListener('click', enterDep, false);
 
 
 function withdrawMoney(){
-    let withState = Assets - withdraw;
+    let withState = Assets - withdraw.value;
     alert(`You have ${withState} on balance!`);
+    withdraw.value = '';
 }
 
-addEventListener('click', withdrawMoney, submit);
+submit.addEventListener('click', withdrawMoney, false);
 
 function showBalance(){
-    let bal = Assets;
-    bal.target
+    let bal = Assets.value;
     alert(`You have ${bal} on balance!`);
+    Assets.value = '';
 }
 
-addEventListener('click', showBalance, balanceBtn);
+balanceBtn.addEventListener('click', showBalance, false);
 
 
 }
